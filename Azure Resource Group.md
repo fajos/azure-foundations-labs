@@ -5,37 +5,37 @@ Resource groups are logical containers in Azure that hold related resources for 
 ## Key Characteristics:
 
 ### Logical Container
-Groups resources that share the same lifecycle, like an application and its components (VM, database, storage, networking)
+- Groups resources that share the same lifecycle, like an application and its components (VM, database, storage, networking)
 
-Resources can exist in only one resource group at a time
+- Resources can exist in only one resource group at a time
 
-Resources can be in different physical regions than their resource group
+- Resources can be in different physical regions than their resource group
 
 ### Management Boundary
-Access Control: Apply Azure RBAC (Role-Based Access Control) permissions at the resource group level
+- Access Control: Apply Azure RBAC (Role-Based Access Control) permissions at the resource group level
 
-Policies: Apply Azure Policy definitions to govern resources within the group
+- Policies: Apply Azure Policy definitions to govern resources within the group
 
-Tags: Apply metadata tags to all resources within the group for organization and billing
+- Tags: Apply metadata tags to all resources within the group for organization and billing
 
-Deployments: Manage as a unit for deployment and deletion
+- Deployments: Manage as a unit for deployment and deletion
 
 ### Lifecycle Management
-Deploy, update, or delete all resources in the group together
+- Deploy, update, or delete all resources in the group together
 
-Simplifies cleanup - deleting a resource group removes all contained resources
+- Simplifies cleanup - deleting a resource group removes all contained resources
 
-Group resources that should be managed together
+- Group resources that should be managed together
 
 ## Common Use Cases:
 
-Application grouping: Web app + database + storage account
+- Application grouping: Web app + database + storage account
 
-Environment separation: Dev, Test, Prod environments in separate resource groups
+- Environment separation: Dev, Test, Prod environments in separate resource groups
 
-Departmental organization: Resources owned by different teams/departments
+- Departmental organization: Resources owned by different teams/departments
 
-Project-based grouping: All resources for a specific project
+- Project-based grouping: All resources for a specific project
 
 
 # Resource group administration using Azure CLI
@@ -97,3 +97,4 @@ az group delete --name MyResourceGroup --yes
 ### Delete without confirmation
 
 az group delete --name MyResourceGroup --no-wait
+
