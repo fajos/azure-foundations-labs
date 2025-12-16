@@ -45,20 +45,15 @@ BlobStorage	Blob-only storage	Cool/Hot access tiers
 ## Creating Storage Account via CLI
 
 1. Prerequisites
-bash
+```
 az login  # Login to Azure
 az account set --subscription "Your-Subscription-Name"
+```
+3. Create Basic Storage Account
 
-2. Create Basic Storage Account
-bash
-az storage account create \
-  --name "mystorageaccount" \
-  --resource-group "MyResourceGroup" \
-  --location "eastus" \
-  --sku "Standard_LRS" \
-  --kind "StorageV2"
+<img width="1236" height="39" alt="image" src="https://github.com/user-attachments/assets/afc71bdd-1e55-4567-8ef5-823fd455e7ea" />
   
-3. Create with Advanced Options
+5. Create with Advanced Options
 bash
 az storage account create \
   --name "mystorageaccount" \
@@ -72,7 +67,7 @@ az storage account create \
   --allow-blob-public-access false \
   --tags "Environment=Prod" "Project=MyApp"
   
-4. Create Premium File Share Account
+6. Create Premium File Share Account
 bash
 az storage account create \
   --name "mypremiumfiles" \
