@@ -44,8 +44,10 @@ Resource groups are logical containers in Azure that hold related resources for 
 1. Install Azure CLI if not already installed
 
 2. Login to your Azure account:
-az login
 
+```bash
+az login
+```
 
 ## Basic Resource Group Creation
 ### Create a simple resource group
@@ -97,4 +99,5 @@ az group delete --name MyResourceGroup --yes
 ### Delete without confirmation
 
 az group delete --name MyResourceGroup --no-wait
+
 
