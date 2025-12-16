@@ -54,7 +54,7 @@ az account set --subscription "Your-Subscription-Name"
 <img width="1236" height="39" alt="image" src="https://github.com/user-attachments/assets/afc71bdd-1e55-4567-8ef5-823fd455e7ea" />
   
 5. Create with Advanced Options
-bash
+```
 az storage account create \
   --name "mystorageaccount" \
   --resource-group "MyResourceGroup" \
@@ -66,7 +66,9 @@ az storage account create \
   --min-tls-version "TLS1_2" \
   --allow-blob-public-access false \
   --tags "Environment=Prod" "Project=MyApp"
-  
+```
+<img width="1905" height="119" alt="image" src="https://github.com/user-attachments/assets/9dd6017b-587d-4ac4-85dc-05d7d742b2f3" />
+
 6. Create Premium File Share Account
 ```
 az storage account create \
