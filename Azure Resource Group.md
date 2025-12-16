@@ -121,4 +121,9 @@ az group delete --name MyResourceGroup --no-wait
 ```
 
 
+# Creating Resource Group Using Azure Portal
+
+
+
+<img width="869" height="418" alt="rg-1" src="https://github.com/user-attachments/assets/494fc15a-64de-4ded-b299-a42b97172537" />
 
