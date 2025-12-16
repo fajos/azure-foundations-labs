@@ -68,13 +68,16 @@ az storage account create \
   --tags "Environment=Prod" "Project=MyApp"
   
 6. Create Premium File Share Account
-bash
+```
 az storage account create \
   --name "mypremiumfiles" \
   --resource-group "MyResourceGroup" \
   --location "eastus" \
   --sku "Premium_LRS" \
   --kind "FileStorage"
+```
+<img width="1898" height="126" alt="image" src="https://github.com/user-attachments/assets/bbc39795-ebc6-4f9a-b80f-be74a732b7b6" />
+
   
 ## Common Management Commands
 
