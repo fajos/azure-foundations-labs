@@ -99,8 +99,6 @@ az appservice plan create \
   --sku B1 \
   --is-linux  # Omit for Windows
 
-<img width="1341" height="578" alt="image" src="https://github.com/user-attachments/assets/02be0256-d69a-4780-bde4-2d0648e6a39b" />
-
 #  Standard Plan with auto-scale
 az appservice plan create \
   --name "ProdAppPlan" \
@@ -108,6 +106,8 @@ az appservice plan create \
   --sku S1 \
   --number-of-workers 3
 ```
+<img width="1341" height="578" alt="image" src="https://github.com/user-attachments/assets/02be0256-d69a-4780-bde4-2d0648e6a39b" />
+
 ### 3. Create Web App
 ```bash
 # Basic Node.js app
@@ -116,11 +116,11 @@ az webapp create \
   --resource-group "MyApp-RG" \
   --plan "MyAppPlan" \
   --runtime "NODE|14-lts"
-
+```
 <img width="1369" height="521" alt="image" src="https://github.com/user-attachments/assets/46fba220-1fc1-489a-bb55-9ff8f4d87699" />
+```
+# Python app with custom runtime
 
-
-_# Python app with custom runtime_
 az webapp create \
   --name "myjobapp-python" \
   --resource-group "MyApp-RG" \
@@ -329,6 +329,7 @@ az webapp restart --name "myjobapp" --resource-group "MyApp-RG"
 
 
 - Use GitHub Student Pack for $100 Azure credit
+
 
 
 
