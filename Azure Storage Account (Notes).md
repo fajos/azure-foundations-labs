@@ -146,11 +146,11 @@ TLS Version	--min-tls-version	TLS1_0, TLS1_2
 
 ## Quick Start Example
 
-# Create resource group
+### Create resource group
 ```
 az group create --name "Storage-RG" --location "eastus"
 ```
-# Create storage account
+### Create storage account
 ```
 az storage account create \
   --name "mystore$(date +%s)" \
@@ -159,7 +159,7 @@ az storage account create \
   --sku "Standard_LRS" \
   --kind "StorageV2"
 ```
-# Get connection string for apps
+### Get connection string for apps
 ```
 az storage account show-connection-string \
   --name "mystorageaccount" \
@@ -167,7 +167,7 @@ az storage account show-connection-string \
   --query "connectionString"
 ```
 
-## **Note:** Always delete unused resources to avoid charges:
+### **Note:** Always delete unused resources to avoid charges:
 ```
 az group delete --name "Storage-RG" --yes --no-wait
 ```
