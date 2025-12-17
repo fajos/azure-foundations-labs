@@ -51,7 +51,7 @@ The managed platform that hosts:
 
 ## Portal Administration
 ### 1. Create via Portal
-```
+```text
 Azure Portal → Create Resource → Web App
 Steps:
 1. Subscription + Resource Group
@@ -85,13 +85,13 @@ Steps:
 
 ## CLI Administration (Essential for Automation)
 ### 1. Create Resource Group
-```
+```bash
 az group create --name "MyApp-RG" --location "eastus"
 ```
 ### 2. Create App Service Plan
 
 #### Basic Plan (B1)
-```
+```bash
 az appservice plan create \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
@@ -99,7 +99,7 @@ az appservice plan create \
   --is-linux  # Omit for Windows
 ```
 ####  Standard Plan with auto-scale
-```
+```bash
 az appservice plan create \
   --name "ProdAppPlan" \
   --resource-group "MyApp-RG" \
@@ -107,7 +107,7 @@ az appservice plan create \
   --number-of-workers 3
 ```
 ### 3. Create Web App
-```
+```bash
 # Basic Node.js app
 az webapp create \
   --name "myjobapp" \
@@ -371,5 +371,6 @@ Clean up resources after interviews: az group delete
 
 
 Use GitHub Student Pack for $100 Azure credit
+
 
 
