@@ -40,10 +40,10 @@ The managed platform that hosts:
 - Function Apps
 
 ## Pricing Tiers Comparison
-| Tier	Best For	Features	Cost |
-|------------------------------------|
-| Free (F1)	Testing/learning	1 GB storage, no custom domain	$0 |
-| Shared (D1)	Dev/Test	Custom domains, no SLA	~$9.50/mo |
+| Tier	| Best For	| Features	| Cost |
+|-------|-----------|-----------|-------|
+| Free (F1)	| Testing/learning	| 1 GB storage, no custom domain	| $0 
+| Shared (D1) |	Dev/Test	| Custom domains, no SLA |	~$9.50/mo 
 | Basic (B1)	Small production	3 instances, manual scale	~$54/mo |
 | Standard (S1)	Production	Auto-scale, slots, backups	~$73/mo |
 | Premium (P1V2)	High traffic	More CPU/RAM, VNet integration	~$196/mo |
@@ -333,5 +333,6 @@ Stop app when not in use: az webapp stop
 Auto-shutdown with Azure Functions
 
 Clean up resources after interviews: az group delete
+
 
 Use GitHub Student Pack for $100 Azure credit
