@@ -89,16 +89,15 @@ Steps:
 az group create --name "MyApp-RG" --location "eastus"
 ```
 ### 2. Create App Service Plan
-
-_# Basic Plan (B1)_
 ```bash
+# Basic Plan (B1)
 az appservice plan create \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --sku B1 \
   --is-linux  # Omit for Windows
 
-_#  Standard Plan with auto-scale_
+#  Standard Plan with auto-scale
 az appservice plan create \
   --name "ProdAppPlan" \
   --resource-group "MyApp-RG" \
@@ -107,7 +106,7 @@ az appservice plan create \
 ```
 ### 3. Create Web App
 ```bash
-_# Basic Node.js app_
+# Basic Node.js app
 az webapp create \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -138,9 +137,8 @@ git remote add azure <git-url-from-command>
 git push azure main
 ```
 ### 5. Deploy from GitHub
-
-# Connect GitHub repo
 ```
+# Connect GitHub repo
 az webapp deployment source config \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -149,9 +147,8 @@ az webapp deployment source config \
   --git-token "your-github-token"
 ```
 ### 6. Environment Configuration
-bash
-#### Set app settings
-```
+```bash
+# Set app settings
 az webapp config appsettings set \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -159,9 +156,7 @@ az webapp config appsettings set \
     "APP_ENV=Production" \
     "DB_CONNECTION=$ConnectionString" \
     "API_KEY=your-api-key"
-```
-#### Set connection strings
-```
+# Set connection strings
 az webapp config connection-string set \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -169,34 +164,27 @@ az webapp config connection-string set \
   --settings "DefaultConnection=$ConnectionString"
 ```
 ### 7. Scale Operations
-
-#### Scale UP (change pricing tier)
 ```
+# Scale UP (change pricing tier)
 az appservice plan update \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --sku S2
-```
-
-#### Scale OUT (add instances)
-```
+# Scale OUT (add instances)
 az appservice plan update \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --number-of-workers 5
 ```
 ### 8. Custom Domains & SSL
-
-#### Add custom domain
 ```
+# Add custom domain
 az webapp config hostname add \
   --webapp-name "myjobapp" \
   --resource-group "MyApp-RG" \
   --hostname "www.myportfolio.com"
-```
 
-#### Bind SSL certificate
-```
+# Bind SSL certificate
 az webapp config ssl bind \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -204,17 +192,14 @@ az webapp config ssl bind \
   --ssl-type "SNI"
 ```
 ### 9. Deployment Slots
-
-#### Create staging slot
 ```
+# Create staging slot
 az webapp deployment slot create \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --slot "staging"
-```
 
-#### Swap slots
-```
+# Swap slots
 az webapp deployment slot swap \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -222,23 +207,18 @@ az webapp deployment slot swap \
   --target-slot "production"
 ```
 ### 10. Monitoring & Logs
-
-#### Download logs
 ```
+# Download logs
 az webapp log download \
   --name "myjobapp" \
   --resource-group "MyApp-RG"
-```
 
-#### Tail live logs
-```
+# Tail live logs
 az webapp log tail \
   --name "myjobapp" \
   --resource-group "MyApp-RG"
-```
 
-#### Configure logging
-```
+# Configure logging
 az webapp log config \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -247,19 +227,16 @@ az webapp log config \
   --web-server-logging filesystem
 ```
 ### 11. Backup & Restore
-
-#### Configure backup
 ```
+# Configure backup
 az webapp config backup update \
   --webapp-name "myjobapp" \
   --resource-group "MyApp-RG" \
   --storage-account-url "https://mystorage.blob.core.windows.net/backups" \
   --frequency "1d" \
   --retention "30"
-```
 
-#### Create manual backup
-```
+# Create manual backup
 az webapp config backup create \
   --webapp-name "myjobapp" \
   --resource-group "MyApp-RG"
@@ -303,8 +280,8 @@ az webapp config appsettings set \
 echo "✅ Deployment complete!"
 echo "🌐 App URL: https://$APP_NAME.azurewebsites.net"
 ```
-Quick Check Commands
-bash
+## Quick Check Commands
+```bash
 # List all web apps
 az webapp list --output table
 
@@ -319,57 +296,31 @@ az webapp deployment list-publishing-profiles \
 
 # Restart app
 az webapp restart --name "myjobapp" --resource-group "MyApp-RG"
-Portfolio Project Tips
-1. Showcase These Skills:
-markdown
-✅ **Infrastructure as Code** - CLI scripts in GitHub repo
-✅ **CI/CD Pipeline** - GitHub Actions/Azure DevOps
-✅ **Environment Management** - Dev/Staging/Prod slots
-✅ **Monitoring** - Application Insights integration
-✅ **Security** - Custom domains, SSL, authentication
-✅ **Scalability** - Auto-scale configuration
-2. Project Structure Example:
-text
-portfolio-project/
-├── .github/workflows/          # CI/CD pipelines
-├── src/                        # Application code
-├── infrastructure/
-│   ├── deploy.sh              # Deployment script
-│   ├── azure-cli-commands.md  # Documentation
-│   └── azure-resources.bicep  # Infrastructure as Code
-└── README.md                  # Deployment instructions
-3. For Job Applications:
-Include deployment instructions in README
+```
+## Quick Reference Cheatsheet
+| Task	| Portal Location	| CLI Command
+|-------|-----------------|------------
+| Create App	| Create Resource → Web App	| az webapp create
+| Deploy Code |	Deployment Center	| az webapp deployment source
+| Set Env Vars | Configuration → Application Settings	| az webapp config appsettings
+| Custom Domain |	Custom Domains	| az webapp config hostname
+| SSL/TLS	| TLS/SSL Settings	| az webapp config ssl
+| Scale	| Scale up (App Service plan)	| az appservice plan update --sku
+| Logs	| App Service logs	| az webapp log tail
+| Backup	| Backups	| az webapp config backup
 
-Document your architecture decisions
+## Cost Optimization for Projects
+- Use Free tier for demos/prototypes
 
-Show cost optimization (using Free/Basic tiers)
+- Stop app when not in use: az webapp stop
 
-Demo URL in resume: https://yourproject.azurewebsites.net
+- Auto-shutdown with Azure Functions
 
-Source code with Azure setup scripts
-
-Quick Reference Cheatsheet
-Task	Portal Location	CLI Command
-Create App	Create Resource → Web App	az webapp create
-Deploy Code	Deployment Center	az webapp deployment source
-Set Env Vars	Configuration → Application Settings	az webapp config appsettings
-Custom Domain	Custom Domains	az webapp config hostname
-SSL/TLS	TLS/SSL Settings	az webapp config ssl
-Scale	Scale up (App Service plan)	az appservice plan update --sku
-Logs	App Service logs	az webapp log tail
-Backup	Backups	az webapp config backup
-Cost Optimization for Projects
-Use Free tier for demos/prototypes
-
-Stop app when not in use: az webapp stop
-
-Auto-shutdown with Azure Functions
-
-Clean up resources after interviews: az group delete
+- Clean up resources after interviews: az group delete
 
 
-Use GitHub Student Pack for $100 Azure credit
+- Use GitHub Student Pack for $100 Azure credit
+
 
 
 
