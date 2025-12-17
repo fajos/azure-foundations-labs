@@ -84,51 +84,45 @@ az storage account create \
 ## Common Management Commands
 
 ### List Storage Accounts
-
-bash
+```
 az storage account list --resource-group "MyResourceGroup"
 az storage account list --output table  # Table format
-
+```
 ### Show Account Details
-
-bash
+```
 az storage account show \
   --name "mystorageaccount" \
   --resource-group "MyResourceGroup"
-  
+```
 ### Get Connection String
-
-bash
+```
 az storage account show-connection-string \
   --name "mystorageaccount" \
   --resource-group "MyResourceGroup"
-  
+```
 ### Regenerate Keys
-
-bash
+```
 az storage account keys renew \
   --account-name "mystorageaccount" \
   --resource-group "MyResourceGroup" \
   --key "primary"
-  
+```
 ### Update Storage Account
-
-bash
+```
 az storage account update \
   --name "mystorageaccount" \
   --resource-group "MyResourceGroup" \
   --access-tier "Cool" \
   --enable-large-file-share
-  
+```  
 ### Delete Storage Account
-
-bash
+```
 az storage account delete \
   --name "mystorageaccount" \
   --resource-group "MyResourceGroup" \
   --yes  # Skip confirmation
-  
-Quick Reference Table
+```
+## Quick Reference Table
 Component	CLI Parameter	Example Values
 Name	--name	mystorage123
 Resource Group	--resource-group	my-rg
@@ -152,26 +146,28 @@ TLS Version	--min-tls-version	TLS1_0, TLS1_2
 
 ## Quick Start Example
 
-bash
 # Create resource group
+```
 az group create --name "Storage-RG" --location "eastus"
-
+```
 # Create storage account
+```
 az storage account create \
   --name "mystore$(date +%s)" \
   --resource-group "Storage-RG" \
   --location "eastus" \
   --sku "Standard_LRS" \
   --kind "StorageV2"
-
+```
 # Get connection string for apps
+```
 az storage account show-connection-string \
   --name "mystorageaccount" \
   --resource-group "Storage-RG" \
   --query "connectionString"
-
+```
 
 ## **Note:** Always delete unused resources to avoid charges:
-
-bash
+```
 az group delete --name "Storage-RG" --yes --no-wait
+```
