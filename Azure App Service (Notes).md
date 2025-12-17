@@ -9,7 +9,7 @@ The VM/Container hosting plan that determines:
 
 - Compute Resources: CPU, RAM, storage
 
--Scale Settings: Instance count, auto-scaling
+- Scale Settings: Instance count, auto-scaling
 
 - Pricing Tier: Free, Shared, Basic, Standard, Premium, Isolated
 
@@ -40,14 +40,14 @@ The managed platform that hosts:
 - Function Apps
 
 ## Pricing Tiers Comparison
-| Tier	| Best For	| Features	| Cost |
-|-------|-----------|-----------|-------|
+| Tier	| Best For	| Features	| Cost
+|-------|-----------|-----------|------
 | Free (F1)	| Testing/learning	| 1 GB storage, no custom domain	| $0 
 | Shared (D1) |	Dev/Test	| Custom domains, no SLA |	~$9.50/mo 
-| Basic (B1)	Small production	3 instances, manual scale	~$54/mo |
-| Standard (S1)	Production	Auto-scale, slots, backups	~$73/mo |
-| Premium (P1V2)	High traffic	More CPU/RAM, VNet integration	~$196/mo |
-| Isolated (I1)	Enterprise	Dedicated hardware, compliance	~$545/mo |
+| Basic (B1)	| Small production	| 3 instances, manual scale |	~$54/mo
+| Standard (S1) |	Production	| Auto-scale, slots, backups	| ~$73/mo 
+| Premium (P1V2) |	High traffic |	More CPU/RAM, VNet integration |	~$196/mo 
+| Isolated (I1) |	Enterprise |	Dedicated hardware, compliance	| ~$545/mo
 
 ## Portal Administration
 1. Create via Portal
@@ -336,3 +336,4 @@ Clean up resources after interviews: az group delete
 
 
 Use GitHub Student Pack for $100 Azure credit
+
