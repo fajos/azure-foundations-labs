@@ -15,7 +15,7 @@
 
 ## Key Characteristics
 
-## Types of Storage Accounts
+### Types of Storage Accounts
 
 | Type	| Best For	| Features |
 |-------|-----------|----------|
@@ -124,15 +124,15 @@ az storage account delete \
   --yes  # Skip confirmation
 ```
 ## Quick Reference Table
-Component	CLI Parameter	Example Values
----
-Name	--name	mystorage123
-Resource Group	--resource-group	my-rg
-Location	--location	eastus, westeurope
-SKU/Tier	--sku	Standard_LRS, Premium_LRS
-Kind	--kind	StorageV2, BlockBlobStorage
-Access Tier	--access-tier	Hot, Cool, Archive
-TLS Version	--min-tls-version	TLS1_0, TLS1_2
+| Component	| CLI Parameter	| Example Values |
+|-----------|---------------|----------------|
+| **Name**	| --name	| mystorage123
+| **Resource Group**	| --resource-group	| my-rg
+| **Location**	| --location	| eastus, westeurope
+| **SKU/Tier**	| --sku	| Standard_LRS, Premium_LRS
+| **Kind**	| --kind	| StorageV2, BlockBlobStorage
+| **Access Tier**	| --access-tier	| Hot, Cool, Archive
+| **TLS Version** | --min-tls-version	| TLS1_0, TLS1_2
 
 ## Best Practices Summary
 
