@@ -50,8 +50,8 @@ The managed platform that hosts:
 | Isolated (I1) |	Enterprise |	Dedicated hardware, compliance	| ~$545/mo
 
 ## Portal Administration
-1. Create via Portal
-text
+### 1. Create via Portal
+```
 Azure Portal → Create Resource → Web App
 Steps:
 1. Subscription + Resource Group
@@ -60,49 +60,54 @@ Steps:
 4. Region
 5. App Service Plan (create new or existing)
 6. Review + Create
-2. Key Portal Sections
-Overview: Status, URL, resource metrics
+```
+### 2. Key Portal Sections
+- Overview: Status, URL, resource metrics
 
-Deployment: CI/CD setup, deployment slots
+- Deployment: CI/CD setup, deployment slots
 
-Settings: Configuration, custom domains, SSL
+- Settings: Configuration, custom domains, SSL
 
-Monitoring: Logs, alerts, Application Insights
+- Monitoring: Logs, alerts, Application Insights
 
-Scale up/out: Change pricing tier or instance count
+- Scale up/out: Change pricing tier or instance count
 
-3. Deployment Options
-Local Git: Push from local repo
+### 3. Deployment Options
+- Local Git: Push from local repo
 
-GitHub/GitLab: Connect repository
+- GitHub/GitLab: Connect repository
 
-FTP/S: Manual file upload
+- FTP/S: Manual file upload
 
-Docker Container: Container registry
+- Docker Container: Container registry
 
-Azure DevOps: Pipeline deployments
+- Azure DevOps: Pipeline deployments
 
-CLI Administration (Essential for Automation)
-1. Create Resource Group
-bash
+## CLI Administration (Essential for Automation)
+### 1. Create Resource Group
+```
 az group create --name "MyApp-RG" --location "eastus"
-2. Create App Service Plan
-bash
-# Basic Plan (B1)
+```
+### 2. Create App Service Plan
+
+#### Basic Plan (B1)
+```
 az appservice plan create \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --sku B1 \
   --is-linux  # Omit for Windows
-
-# Standard Plan with auto-scale
+```
+####  Standard Plan with auto-scale
+```
 az appservice plan create \
   --name "ProdAppPlan" \
   --resource-group "MyApp-RG" \
   --sku S1 \
   --number-of-workers 3
-3. Create Web App
-bash
+```
+### 3. Create Web App
+```
 # Basic Node.js app
 az webapp create \
   --name "myjobapp" \
@@ -116,8 +121,9 @@ az webapp create \
   --resource-group "MyApp-RG" \
   --plan "MyAppPlan" \
   --runtime "PYTHON|3.9"
-4. Deploy from Local Git
-bash
+```
+### 4. Deploy from Local Git
+```
 # Configure deployment user
 az webapp deployment user set \
   --user-name "mydeployuser" \
@@ -131,18 +137,22 @@ az webapp deployment source config-local-git \
 # Get git URL and push
 git remote add azure <git-url-from-command>
 git push azure main
-5. Deploy from GitHub
-bash
+```
+### 5. Deploy from GitHub
+
 # Connect GitHub repo
+```
 az webapp deployment source config \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --repo-url "https://github.com/username/repo" \
   --branch "main" \
   --git-token "your-github-token"
-6. Environment Configuration
+```
+### 6. Environment Configuration
 bash
-# Set app settings
+#### Set app settings
+```
 az webapp config appsettings set \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
@@ -150,90 +160,114 @@ az webapp config appsettings set \
     "APP_ENV=Production" \
     "DB_CONNECTION=$ConnectionString" \
     "API_KEY=your-api-key"
-
-# Set connection strings
+```
+#### Set connection strings
+```
 az webapp config connection-string set \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --connection-string-type "SQLAzure" \
   --settings "DefaultConnection=$ConnectionString"
-7. Scale Operations
-bash
-# Scale UP (change pricing tier)
+```
+### 7. Scale Operations
+
+#### Scale UP (change pricing tier)
+```
 az appservice plan update \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --sku S2
+```
 
-# Scale OUT (add instances)
+#### Scale OUT (add instances)
+```
 az appservice plan update \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --number-of-workers 5
-8. Custom Domains & SSL
-bash
-# Add custom domain
+```
+### 8. Custom Domains & SSL
+
+#### Add custom domain
+```
 az webapp config hostname add \
   --webapp-name "myjobapp" \
   --resource-group "MyApp-RG" \
   --hostname "www.myportfolio.com"
+```
 
-# Bind SSL certificate
+#### Bind SSL certificate
+```
 az webapp config ssl bind \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --certificate-thumbprint "thumbprint" \
   --ssl-type "SNI"
-9. Deployment Slots
-bash
-# Create staging slot
+```
+### 9. Deployment Slots
+
+#### Create staging slot
+```
 az webapp deployment slot create \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --slot "staging"
+```
 
-# Swap slots
+#### Swap slots
+```
 az webapp deployment slot swap \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --slot "staging" \
   --target-slot "production"
-10. Monitoring & Logs
-bash
-# Download logs
+```
+### 10. Monitoring & Logs
+
+#### Download logs
+```
 az webapp log download \
   --name "myjobapp" \
   --resource-group "MyApp-RG"
+```
 
-# Tail live logs
+#### Tail live logs
+```
 az webapp log tail \
   --name "myjobapp" \
   --resource-group "MyApp-RG"
+```
 
-# Configure logging
+#### Configure logging
+```
 az webapp log config \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --application-logging true \
   --detailed-error-messages true \
   --web-server-logging filesystem
-11. Backup & Restore
-bash
-# Configure backup
+```
+### 11. Backup & Restore
+
+#### Configure backup
+```
 az webapp config backup update \
   --webapp-name "myjobapp" \
   --resource-group "MyApp-RG" \
   --storage-account-url "https://mystorage.blob.core.windows.net/backups" \
   --frequency "1d" \
   --retention "30"
+```
 
-# Create manual backup
+#### Create manual backup
+```
 az webapp config backup create \
   --webapp-name "myjobapp" \
   --resource-group "MyApp-RG"
-Project-Ready Commands for Job Applications
-Full Deployment Script
-bash
+```
+
+## Full Deployment Script
+```
 #!/bin/bash
 # deploy-app.sh - One-click deployment for job projects
 
@@ -269,6 +303,7 @@ az webapp config appsettings set \
 
 echo "✅ Deployment complete!"
 echo "🌐 App URL: https://$APP_NAME.azurewebsites.net"
+```
 Quick Check Commands
 bash
 # List all web apps
@@ -336,4 +371,5 @@ Clean up resources after interviews: az group delete
 
 
 Use GitHub Student Pack for $100 Azure credit
+
 
