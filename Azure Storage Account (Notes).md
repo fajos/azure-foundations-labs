@@ -17,10 +17,11 @@
 
 ## Types of Storage Accounts
 
-### Type	Best For	Features
-### Standard	General purpose	Blobs, Files, Queues, Table
-### Premium	High-performance	Block blobs, File shares
-### BlobStorage	Blob-only storage	Cool/Hot access tiers
+| Type	| Best For	| Features |
+|-------|-----------|----------|
+| **Standard**	| General purpose	| Blobs, Files, Queues, Table |
+| **Premium**	| High-performance	| Block blobs, File shares |
+| **BlobStorage**	| Blob-only storage	| Cool/Hot access tiers |
 
 ## Access Tiers
 
