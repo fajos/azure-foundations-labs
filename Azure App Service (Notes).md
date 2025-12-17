@@ -88,6 +88,8 @@ Steps:
 ```bash
 az group create --name "MyApp-RG" --location "eastus"
 ```
+<img width="725" height="192" alt="image" src="https://github.com/user-attachments/assets/30159e15-d968-4903-9977-c877ab829d02" />
+
 ### 2. Create App Service Plan
 ```bash
 # Basic Plan (B1)
@@ -96,6 +98,8 @@ az appservice plan create \
   --resource-group "MyApp-RG" \
   --sku B1 \
   --is-linux  # Omit for Windows
+
+<img width="1341" height="578" alt="image" src="https://github.com/user-attachments/assets/02be0256-d69a-4780-bde4-2d0648e6a39b" />
 
 #  Standard Plan with auto-scale
 az appservice plan create \
@@ -113,6 +117,9 @@ az webapp create \
   --plan "MyAppPlan" \
   --runtime "NODE|14-lts"
 
+<img width="1369" height="521" alt="image" src="https://github.com/user-attachments/assets/46fba220-1fc1-489a-bb55-9ff8f4d87699" />
+
+
 _# Python app with custom runtime_
 az webapp create \
   --name "myjobapp-python" \
@@ -120,6 +127,8 @@ az webapp create \
   --plan "MyAppPlan" \
   --runtime "PYTHON|3.9"
 ```
+<img width="1339" height="482" alt="image" src="https://github.com/user-attachments/assets/b1fe478c-a545-4150-9115-8349743833aa" />
+
 ### 4. Deploy from Local Git
 ```
 # Configure deployment user
@@ -320,6 +329,7 @@ az webapp restart --name "myjobapp" --resource-group "MyApp-RG"
 
 
 - Use GitHub Student Pack for $100 Azure credit
+
 
 
 
