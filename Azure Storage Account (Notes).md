@@ -18,8 +18,10 @@
 ### Types of Storage Accounts
 
 Type	Best For	Features
-Standard	General purpose	Blobs, Files, Queues, Tables
+Standard	General purpose	Blobs, Files, Queues, Table
+---
 Premium	High-performance	Block blobs, File shares
+---
 BlobStorage	Blob-only storage	Cool/Hot access tiers
 
 ## Access Tiers
@@ -124,6 +126,7 @@ az storage account delete \
 ```
 ## Quick Reference Table
 Component	CLI Parameter	Example Values
+---
 Name	--name	mystorage123
 Resource Group	--resource-group	my-rg
 Location	--location	eastus, westeurope
