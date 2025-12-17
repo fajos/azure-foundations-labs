@@ -90,16 +90,15 @@ az group create --name "MyApp-RG" --location "eastus"
 ```
 ### 2. Create App Service Plan
 
-#### Basic Plan (B1)
+_# Basic Plan (B1)_
 ```bash
 az appservice plan create \
   --name "MyAppPlan" \
   --resource-group "MyApp-RG" \
   --sku B1 \
   --is-linux  # Omit for Windows
-```
-####  Standard Plan with auto-scale
-```bash
+
+_#  Standard Plan with auto-scale_
 az appservice plan create \
   --name "ProdAppPlan" \
   --resource-group "MyApp-RG" \
@@ -108,14 +107,14 @@ az appservice plan create \
 ```
 ### 3. Create Web App
 ```bash
-# Basic Node.js app
+_# Basic Node.js app_
 az webapp create \
   --name "myjobapp" \
   --resource-group "MyApp-RG" \
   --plan "MyAppPlan" \
   --runtime "NODE|14-lts"
 
-# Python app with custom runtime
+_# Python app with custom runtime_
 az webapp create \
   --name "myjobapp-python" \
   --resource-group "MyApp-RG" \
@@ -371,6 +370,7 @@ Clean up resources after interviews: az group delete
 
 
 Use GitHub Student Pack for $100 Azure credit
+
 
 
 
