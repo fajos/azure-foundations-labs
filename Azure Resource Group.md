@@ -53,6 +53,8 @@ az login
 ```
 az group create --name MyResourceGroup --location eastus
 ```
+<img width="635" height="187" alt="image" src="https://github.com/user-attachments/assets/a8a81a46-6c30-4e70-aea5-809249e52e74" />
+
 
 ### Create with specific location/region
 ```
@@ -82,6 +84,8 @@ az group create \
 ```
 az group list
 ```
+<img width="660" height="381" alt="image" src="https://github.com/user-attachments/assets/c2f34b12-181b-465d-97f1-b1d850ea6fce" />
+
 
 ### List in table format
 ```
@@ -109,6 +113,8 @@ az group show --name MyResourceGroup
 ```
 az group delete --name MyResourceGroup
 ```
+<img width="423" height="50" alt="image" src="https://github.com/user-attachments/assets/f1b8aa9a-8ea4-4aaf-8436-ae4acfc35187" />
+
 
 ### Delete with confirmation prompt
 ```
@@ -134,6 +140,7 @@ az group delete --name MyResourceGroup --no-wait
 ## Review and create the resource group
 
 <img width="472" height="379" alt="rg-3" src="https://github.com/user-attachments/assets/9d0b9b09-0568-4349-9aef-c69d9a41de69" />
+
 
 
 
