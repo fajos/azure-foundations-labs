@@ -118,9 +118,9 @@ az webapp create \
   --runtime "NODE|14-lts"
 ```
 <img width="1369" height="521" alt="image" src="https://github.com/user-attachments/assets/46fba220-1fc1-489a-bb55-9ff8f4d87699" />
+
 ```
 # Python app with custom runtime
-
 az webapp create \
   --name "myjobapp-python" \
   --resource-group "MyApp-RG" \
@@ -329,6 +329,7 @@ az webapp restart --name "myjobapp" --resource-group "MyApp-RG"
 
 
 - Use GitHub Student Pack for $100 Azure credit
+
 
 
 
