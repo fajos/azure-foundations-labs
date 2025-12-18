@@ -53,3 +53,26 @@
 
 - **Backup & DR:** Maintain regular geo-redundant backups and a documented recovery plan.
 
+# LABS
+## 1. Create Linux VM
+```
+az vm create \
+  --resource-group MyResourceGroup \
+  --name MyLinuxVM \
+  --image Ubuntu2204 \
+  --admin-username azureuser \
+  --admin-password "YourSecurePassword123!" \
+  --public-ip-sku Standard \
+  --size Standard_D2s_v3
+```
+<img width="1491" height="209" alt="image" src="https://github.com/user-attachments/assets/fd150c81-071c-4abc-8ea2-9acbefea34cd" />
+
+### Resources created
+<img width="1412" height="281" alt="image" src="https://github.com/user-attachments/assets/add3dd90-aab0-4d1a-b741-0f6e8cc9d639" />
+
+### VM is running
+<img width="1436" height="622" alt="image" src="https://github.com/user-attachments/assets/c971a73a-b367-4ddd-9ebd-a384bb90fece" />
+
+
+
+
