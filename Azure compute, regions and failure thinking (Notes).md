@@ -92,5 +92,30 @@ az vm create
 ### VM is running
 <img width="1428" height="617" alt="image" src="https://github.com/user-attachments/assets/47b2d2f7-6cee-40ff-8204-ff72fc776aa3" />
 
+## 3. Stop a VM
+```
+az vm stop --resource-group azurelabs --name MyWindowsVM
+```
+<img width="642" height="50" alt="image" src="https://github.com/user-attachments/assets/344494b8-43ae-41bc-87ac-485fed5fdd99" />
+
+## 4. Start a VM
+```
+az vm start --resource-group azurelabs --name MyWindowsVM
+```
+<img width="663" height="36" alt="image" src="https://github.com/user-attachments/assets/b7de6b6a-ad8b-4ff6-94b8-f144022d69f2" />
+
+## 5. Restart a VM
+```
+az vm restart --resource-group azurelabs --name MyWindowsVM
+```
+<img width="663" height="41" alt="image" src="https://github.com/user-attachments/assets/503d2451-a2e8-4929-8570-494e4aa69a59" />
+
+## 6. Delete a VM
+```
+# Delete VM and all associated resources
+az vm delete --resource-group azurelabs --name MyWindowsVM --yes
+```
+<img width="673" height="36" alt="image" src="https://github.com/user-attachments/assets/c195c2a4-d7eb-4012-82e6-93cc3cd821b4" />
+
 
 
