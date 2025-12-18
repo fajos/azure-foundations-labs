@@ -54,15 +54,15 @@
 - **Backup & DR:** Maintain regular geo-redundant backups and a documented recovery plan.
 
 # LABS
-## 1. Create Linux VM
+## 1. Create Linux VM using CLI
 ```
-az vm create \
-  --resource-group MyResourceGroup \
-  --name MyLinuxVM \
-  --image Ubuntu2204 \
-  --admin-username azureuser \
-  --admin-password "YourSecurePassword123!" \
-  --public-ip-sku Standard \
+az vm create
+  --resource-group MyResourceGroup
+  --name MyLinuxVM
+  --image Ubuntu2204
+  --admin-username azureuser
+  --admin-password "YourSecurePassword123!"
+  --public-ip-sku Standard
   --size Standard_D2s_v3
 ```
 <img width="1491" height="209" alt="image" src="https://github.com/user-attachments/assets/fd150c81-071c-4abc-8ea2-9acbefea34cd" />
@@ -73,6 +73,24 @@ az vm create \
 ### VM is running
 <img width="1436" height="622" alt="image" src="https://github.com/user-attachments/assets/c971a73a-b367-4ddd-9ebd-a384bb90fece" />
 
+## 2. Create Window VM using CLI
+```
+az vm create 
+  --resource-group MyResourceGroup
+  --name MyWindowsVM
+  --image Win2022Datacenter
+  --admin-username azureuser
+  --admin-password "YourSecurePassword123!"
+  --public-ip-sku Standard
+  --size Standard_D2s_v3
+```
+<img width="1489" height="213" alt="image" src="https://github.com/user-attachments/assets/cdc08c8a-3569-4f3e-a637-7eb0bd388cee" />
+
+### Resources Created
+<img width="1350" height="261" alt="image" src="https://github.com/user-attachments/assets/860a6563-52ac-47db-8d3d-65b85de2507e" />
+
+### VM is running
+<img width="1428" height="617" alt="image" src="https://github.com/user-attachments/assets/47b2d2f7-6cee-40ff-8204-ff72fc776aa3" />
 
 
 
