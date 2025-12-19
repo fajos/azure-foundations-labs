@@ -138,12 +138,16 @@ az vm resize --resource-group azurelabs --name MyWindowsVM --size Standard_D2s_v
 # Start VM after resizing
 az vm start --resource-group azurelabs --name MyWindowsVM
 ```
+## Current size after resizing
+<img width="922" height="37" alt="image" src="https://github.com/user-attachments/assets/9096e549-ec72-4cdf-a787-448260c51e05" />
+
 ## 9. Delete a VM
 ```
 # Delete VM and all associated resources
 az vm delete --resource-group azurelabs --name MyWindowsVM --yes
 ```
 <img width="673" height="36" alt="image" src="https://github.com/user-attachments/assets/c195c2a4-d7eb-4012-82e6-93cc3cd821b4" />
+
 
 
 
