@@ -110,12 +110,24 @@ az vm restart --resource-group azurelabs --name MyWindowsVM
 ```
 <img width="663" height="41" alt="image" src="https://github.com/user-attachments/assets/503d2451-a2e8-4929-8570-494e4aa69a59" />
 
-## 6. Delete a VM
+## 6. Get VM Details
+```
+# List all VMs
+az vm list --output table
+
+# Show specific VM details
+az vm show --resource-group MyResourceGroup --name MyLinuxVM --show-details
+
+# Get public IP
+az vm show --resource-group MyResourceGroup --name MyLinuxVM --query publicIps -o tsv
+```
+## 7. Delete a VM
 ```
 # Delete VM and all associated resources
 az vm delete --resource-group azurelabs --name MyWindowsVM --yes
 ```
 <img width="673" height="36" alt="image" src="https://github.com/user-attachments/assets/c195c2a4-d7eb-4012-82e6-93cc3cd821b4" />
+
 
 
 
