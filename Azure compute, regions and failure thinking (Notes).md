@@ -133,7 +133,7 @@ az vm show --resource-group azurelabs  --name MyWindowsVM --query hardwareProfil
 az vm deallocate --resource-group azurelabs --name MyWindowsVM
 
 # Resize VM
-az vm resize --resource-group azurelabs --name MyWindowsVM --size Standard_D2s_v3
+az vm resize --resource-group azurelabs --name MyWindowsVM --size Standard_D2ds_v4
 
 # Start VM after resizing
 az vm start --resource-group azurelabs --name MyWindowsVM
@@ -147,6 +147,7 @@ az vm start --resource-group azurelabs --name MyWindowsVM
 az vm delete --resource-group azurelabs --name MyWindowsVM --yes
 ```
 <img width="673" height="36" alt="image" src="https://github.com/user-attachments/assets/c195c2a4-d7eb-4012-82e6-93cc3cd821b4" />
+
 
 
 
