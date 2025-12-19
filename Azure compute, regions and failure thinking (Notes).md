@@ -141,12 +141,40 @@ az vm start --resource-group azurelabs --name MyWindowsVM
 ## Current size after resizing
 <img width="922" height="37" alt="image" src="https://github.com/user-attachments/assets/9096e549-ec72-4cdf-a787-448260c51e05" />
 
-## 9. Delete a VM
+## 9. Automated Resize Script
+```
+#!/bin/bash
+# resize-vm.sh
+RESOURCE_GROUP="azurelabs"
+VM_NAME="MyWindowsVM"
+NEW_SIZE="Standard_D2ds_v4"
+
+echo "Stopping VM..."
+az vm deallocate --resource-group $RESOURCE_GROUP --name $VM_NAME
+
+echo "Resizing to $NEW_SIZE..."
+az vm resize \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
+  --size $NEW_SIZE
+
+echo "Starting VM..."
+az vm start --resource-group $RESOURCE_GROUP --name $VM_NAME
+
+echo "Verification..."
+az vm show \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
+  --query hardwareProfile.vmSize
+```
+
+## 10. Delete a VM
 ```
 # Delete VM and all associated resources
 az vm delete --resource-group azurelabs --name MyWindowsVM --yes
 ```
 <img width="673" height="36" alt="image" src="https://github.com/user-attachments/assets/c195c2a4-d7eb-4012-82e6-93cc3cd821b4" />
+
 
 
 
