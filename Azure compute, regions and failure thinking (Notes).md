@@ -127,6 +127,7 @@ az vm show --resource-group azurelabs --name MyLinuxVM --query publicIps -o tsv
 az vm show --resource-group azurelabs  --name MyWindowsVM --query hardwareProfile.vmSize
 ```
 <img width="875" height="35" alt="image" src="https://github.com/user-attachments/assets/34cedcb1-05dd-4a1c-99fe-2f36fd82f55c" />
+
 ```
 # Stop VM first (required for resizing)
 az vm deallocate --resource-group azurelabs --name MyWindowsVM
@@ -143,6 +144,7 @@ az vm start --resource-group azurelabs --name MyWindowsVM
 az vm delete --resource-group azurelabs --name MyWindowsVM --yes
 ```
 <img width="673" height="36" alt="image" src="https://github.com/user-attachments/assets/c195c2a4-d7eb-4012-82e6-93cc3cd821b4" />
+
 
 
 
