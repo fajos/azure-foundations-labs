@@ -139,6 +139,9 @@ az deployment group create --name main --template-file main.bicep
 
 - In Overview, you can see that one deployment succeeded (I have two because I have another deployment earlier. You might need to expand the Essentials area to see the deployment.
 
+<img width="1462" height="388" alt="image" src="https://github.com/user-attachments/assets/ba28867a-a71b-47f9-a1de-c4a9e2001a5b" />
+
+
 
 
 
