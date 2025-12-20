@@ -1,6 +1,6 @@
 param location string = 'canadacentral'
-param storageAccountName string = 'mystorage($uniqueString(resourceGroup().id))'
-param appServiceAppName string = 'myAppServicePlan($uniqueString(resourceGroup().id))'
+param storageAccountName string = 'mystorage${uniqueString(resourceGroup().id)}'
+param appServiceAppName string = 'myAppServicePlan${uniqueString(resourceGroup().id)}'
 
 var appServicePlanName = 'MyAppServicePlan'
 
