@@ -1,6 +1,12 @@
+param location string = 'canadacentral'
+param storageAccountName string = 'mystorage($uniqueString(resourceGroup().id))'
+param appServiceAppName string = 'myAppServicePlan($uniqueString(resourceGroup().id))'
+
+var appServicePlanName = 'MyAppServicePlan'
+
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
-  name: 'storageaccount20251220'
-  location: 'canadacentral'
+  name: storageAccountName
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -11,8 +17,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 }
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
-  name: 'myAppServicePlan'
-  location: 'canadacentral'
+  name: appServicePlanName
+  location: location
   sku: {
     name: 'S1'
     tier: 'Standard'
@@ -21,8 +27,8 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
 }
 
 resource appServiceApp 'Microsoft.Web/sites@2021-02-01' = {
-  name: 'myAppServiceApp'
-  location: 'canadacentral'
+  name: appServiceAppName
+  location: location
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
